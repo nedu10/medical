@@ -2,6 +2,11 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
+import AccountWrapper from "../components/wrappers/AccountWrapper.vue";
+
+import Feeds from "../views/auth/Feeds.vue";
+import Members from "../views/auth/Members.vue";
+import Broadcast from "../views/auth/Broadcast.vue";
 
 Vue.use(VueRouter);
 
@@ -19,14 +24,30 @@ const routes = [
   {
     path: "/account",
     name: "Account",
-    component: Account,
+    component: AccountWrapper,
     children: [
       {
         path: "",
-        component: Landing,
-        name: "Landing",
+        component: Feeds,
+        name: "Feeds",
         meta: {
-          title: "Variety - Account",
+          title: "Variety - Feeds",
+        },
+      },
+      {
+        path: "members",
+        component: Members,
+        name: "Members",
+        meta: {
+          title: "Variety - Members",
+        },
+      },
+      {
+        path: "broadcast",
+        component: Broadcast,
+        name: "Broadcast",
+        meta: {
+          title: "Variety - Broadcast",
         },
       },
     ],

@@ -70,7 +70,7 @@
           </div>
 
           <br />
-          <button class="btn btn-bold btn-block btn-primary" type="submit">
+          <button class="btn btn-bold btn-block btn-info" type="submit">
             Register
           </button>
         </form>

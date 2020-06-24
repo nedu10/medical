@@ -8,7 +8,7 @@
         <h5 class="text-uppercase">Sign in</h5>
         <br />
 
-        <form class="form-type-material">
+        <form @submit.prevent="loginUser()" class="form-type-material">
           <div class="form-group">
             <input
               type="text"
@@ -42,7 +42,7 @@
           </div>
 
           <div class="form-group">
-            <button class="btn btn-bold btn-block btn-primary" type="submit">
+            <button class="btn btn-bold btn-block btn-info" type="submit">
               Login
             </button>
           </div>
@@ -57,3 +57,24 @@
     </div>
   </div>
 </template>
+<script>
+import Nprogress from "nprogress";
+import { notifications } from "@/mixins/Notification";
+export default {
+  name: "Login",
+  mixins: [notifications],
+  methods: {
+    async loginUser() {
+      Nprogress.start();
+      const self = this;
+      setTimeout(() => {
+        this.showSuccessNotification("Successfully Logged In");
+        Nprogress.done();
+      }, 1000);
+      setTimeout(() => {
+        location.replace("/account");
+      }, 1500);
+    },
+  },
+};
+</script>
